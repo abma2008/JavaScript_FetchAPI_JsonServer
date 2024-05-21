@@ -159,7 +159,20 @@ let alertForm = async () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(content)
         }
-        await fetch('http://localhost:5001/customers', options)
+        Swal.fire({
+            icon: "question",
+            title: "Confirmation Box",
+            html: "Are you sure you want to save?",
+            showConfirmButton: true,
+            showCancelButton: true,
+
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+
+                await fetch('http://localhost:5001/customers', options)
+            }
+        })
+
     }
 
 }
