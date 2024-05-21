@@ -5,3 +5,7 @@
 * the command to run json-server:
 json-server --watch database.json --port 5001
 * This is an amazing exercise to use as a reference..
+
+# The API used:
+* fetch is used most of the time.
+* axios CDN is also used to fetch API fake data from database.json
