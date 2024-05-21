@@ -1,0 +1,152 @@
+/* 
+The content of this file should control the DOM on the index.html
+==================================================================
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(bisque, lightblue);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 25px;
+    background: linear-gradient(brown, black);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: goldenrod;
+    padding: 2%;
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    list-style-type: none;
+    margin-left: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+.hr-separator {
+    box-shadow: 10px 10px 10px 10px;
+    background: linear-gradient(black, orange);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 10px;
+
+}
+
+.form-customers {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 75%;
+    margin: 0 auto;
+
+}
+
+.form-customers label {
+    margin-top: 10px;
+}
+
+#show-form {
+    display: none;
+}
+
+#buttons button:hover {
+    box-shadow: 4px 4px 4px 4px;
+}
+
+
+
+.hr-container {
+    display: none;
+    /* position: absolute; */
+    background: linear-gradient(rgb(184, 70, 70), white);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: brown;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+
+.container hr {
+    background: linear-gradient(brown, black);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 4px 4px 4px 4px;
+    min-height: 10px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.container h1 {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.view-points {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.view-points {
+    margin-top: 10px;
+}
+
+
+
+.view-points:hover {
+    cursor: pointer;
+    color: brown;
+    border-radius: 25px solid red;
+    border-bottom: 2px solid bisque;
+}
+
+.list-points {
+    display: none;
+}
+
+.display-data table {
+    background-color: bisque;
+    margin-top: 10px;
+}
+
+.display-table {
+    border-radius: 20px;
+}
