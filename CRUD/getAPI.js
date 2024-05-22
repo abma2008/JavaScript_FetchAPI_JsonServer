@@ -83,8 +83,8 @@ const getData = async () => {
            <td>${customer.lastName}</td>
            <td>${customer.email}</td>
            <td>${customer.phone}</td>
-           <td><button class="btn btn-sm btn-warning" onclick="updateOne(${customer.id})">Edit</button></td>
-           <td><button class="btn btn-sm btn-danger" onclick="delOne(${customer.id})">delete</button></td>
+           <td><button class="btn btn-sm btn-warning" onclick="updateOne('${customer.id}')">Edit</button></td>
+           <td><button class="btn btn-sm btn-danger" onclick="delOne('${customer.id}')">delete</button></td>
            </tr>
 
             `

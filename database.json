@@ -1,3 +1,11 @@
 {
-  "customers": []
+  "customers": [
+    {
+      "id": "24ef",
+      "firstName": "Ahmed",
+      "lastName": "Almashani",
+      "email": "Ahmed.Almashani@gmail.com",
+      "phone": "91190022"
+    }
+  ]
 }
