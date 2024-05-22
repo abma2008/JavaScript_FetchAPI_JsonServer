@@ -187,3 +187,7 @@ let alertForm = async () => {
 
 }
 
+// viewGetAPI using window.location.href:
+let viewGetAPI = () => {
+    window.location.href = '/getAPI.html'
+}
