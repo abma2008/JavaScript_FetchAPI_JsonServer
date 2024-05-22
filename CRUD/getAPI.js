@@ -140,10 +140,10 @@ let alertForm = async () => {
         html:
             `
         <form autocomplete="off">
-        <input type="text" class="swal2-input" id="customer_name" placeholder="Enter First Name">
-        <input type="text" class="swal2-input" id="customer_last" placeholder="Enter Last Name">
-        <input type="email" class="swal2-input" id="customer_email" placeholder="Enter Email Address">
-        <input type="phone" class="swal2-input" id="customer_phone" placeholder="Enter Phone Number">
+        <input type="text" class="swal2-input" id="customer_name" placeholder="Enter First Name" required>
+        <input type="text" class="swal2-input" id="customer_last" placeholder="Enter Last Name" required>
+        <input type="email" class="swal2-input" id="customer_email" placeholder="Enter Email Address" required>
+        <input type="phone" class="swal2-input" id="customer_phone" placeholder="Enter Phone Number" required>
         </form>
         `
     })
@@ -154,24 +154,34 @@ let alertForm = async () => {
             email: `${document.querySelector('#customer_email').value}`,
             phone: `${document.querySelector('#customer_phone').value}`,
         }
-        let options = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(content)
-        }
-        Swal.fire({
-            icon: "question",
-            title: "Confirmation Box",
-            html: "Are you sure you want to save?",
-            showConfirmButton: true,
-            showCancelButton: true,
-
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-
-                await fetch('http://localhost:5001/customers', options)
+        if (content.firstName.length > 0 && content.lastName.length > 0 && content.email.length > 0 && content.phone.length > 0) {
+            let options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(content)
             }
-        })
+            Swal.fire({
+                icon: "question",
+                title: "Confirmation Box",
+                html: "Are you sure you want to save?",
+                showConfirmButton: true,
+                showCancelButton: true,
+
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+
+                    await fetch('http://localhost:5001/customers', options)
+                }
+            })
+        }
+        else {
+            Swal.fire({
+                icon: 'info',
+                text: 'Empty fields are not allowed',
+                html: 'You cannot save empty strings.',
+                timer: 3000
+            })
+        }
 
     }
 
