@@ -31,6 +31,21 @@
     <div class="hr-container">
         
     </div>
+    <div class="show-search-div">
+        <button class="btn btn-outline-secondary btn-search-div">Show Search Box</button>
+    </div>
+    <div class="search-div">
+        <label for="searchOption">Choose Field to search</label>
+        <select name="searchOption" id="searchOption" class="form-control">
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+        </select>
+        <label for="searchText" style="font-weight:bold;">Search Data</label>
+        <input type="text" name="searchText" id="searchText" class="form-control" autocomplete="off">
+        <button class="btn btn-warning mt-2" onclick="Search()">Search</button>
+    </div>
     
     <!-- declaring the container that will hold the content of the page -->
     <div class="container">
@@ -51,7 +66,7 @@
     
     <!-- declaring the local index.js -->
     <script src="crud/animation.js"></script>
-    <script src="crud/index.js"></script>
+    <!-- <script src="crud/index.js"></script> -->
     <script src="crud/index_jquery.js"></script>
     <script src="CRUD/getAPI.js"></script>
 </body>

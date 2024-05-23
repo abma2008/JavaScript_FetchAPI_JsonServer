@@ -16,11 +16,24 @@ $(document).ready(function () {
     setInterval(() => {
         // adding functionality to hr-separator class:
         $('.hr-container').slideToggle(2000, () => {
-            $('.hr-container').html(`${new Date()}`)
+            $('.hr-container').html(`
+            ${setInterval(() => {
+                $('.hr-container').html(`${new Date()}`)
+            }, 1000)}`)
         })
     }, 10000);
     // clicking the view-points div to slidetoggle list-points:
     $('.view-points').on('click', () => {
         $('.list-points').slideToggle(3000);
+    })
+
+    // animating search-div and show-search-div:
+    $('.search-div').on('dblclick', function () {
+        $('.search-div').slideUp(2000)
+        $('.show-search-div').slideDown(2000);
+    })
+    $('.btn-search-div').on('click', function () {
+        $('.show-search-div').slideUp(2000);
+        $('.search-div').slideDown(2000);
     })
 })

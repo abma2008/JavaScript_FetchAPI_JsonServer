@@ -119,12 +119,22 @@ let updateOne = async (id) => {
             email: `${document.querySelector("#email").value}`,
             phone: `${document.querySelector("#phone").value}`
         }
-        let options = {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(editCustomer)
+        if (editCustomer.firstName === "" || editCustomer.lastName === "" || editCustomer.email === "" || editCustomer.phone === "") {
+            Swal.fire({
+                icon: "error",
+                title: "Empty Strings",
+                text: "Make sure to fill out all the fields, please",
+                timer: 3000
+            })
         }
-        await fetch(`http://localhost:5001/customers/${id}`, options)
+        else {
+            let options = {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(editCustomer)
+            }
+            await fetch(`http://localhost:5001/customers/${id}`, options)
+        }
     }
 }
 
@@ -190,4 +200,80 @@ let alertForm = async () => {
 // viewGetAPI using window.location.href:
 let viewGetAPI = () => {
     window.location.href = '/getAPI.html'
+}
+
+
+// creating the search function here:
+let Search = async () => {
+    // calling all the customers API:
+    let data = await fetch('http://localhost:5001/customers');
+    let customers = await data.json()
+    if (customers.length === 0) {
+        Swal.fire({
+            icon: 'error',
+            iconHtml: 'x',
+            title: 'empty query',
+            text: ' no data found'
+        })
+    }
+    else {
+        // checking for firstname:
+        let searchOption = document.querySelector('#searchOption').value;
+        let searchText = document.querySelector('#searchText').value;
+        let customers_first = customers.filter((customer) => customer.firstName === searchText)
+        let customers_last = customers.filter((customer) => customer.lastName === searchText)
+        let customers_email = customers.filter((customer) => customer.email === searchText)
+        let customers_phone = customers.filter((customer) => customer.phone === searchText)
+
+        // checking the results:
+        if (searchOption === 'first_name') {
+            showSearch(customers_first)
+        }
+        else if (searchOption === 'last_name') {
+            showSearch(customers_last)
+        }
+        else if (searchOption === 'email') {
+            showSearch(customers_email)
+        }
+        else if (searchOption === 'phone') {
+            showSearch(customers_phone)
+        }
+
+
+    }
+}
+
+
+
+// The function should display the information on displayData div:
+let showSearch = (customers) => {
+    if (customers.length <= 0) {
+        displayData.innerHTML = '<h1>No Data to display....</h1>'
+    }
+    else {
+        displayTable.innerHTML = `<thead class="table-header">
+           <tr>
+           <th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th>
+           <th>Edit</th><th>delete</th>
+           </tr>
+           </thead> 
+           <tbody>`
+        customers.forEach((customer) => {
+            displayTable.innerHTML +=
+                `
+           <tr>
+           <td>${customer.id}</td>
+           <td>${customer.firstName}</td>
+           <td>${customer.lastName}</td>
+           <td>${customer.email}</td>
+           <td>${customer.phone}</td>
+           <td><button class="btn btn-sm btn-warning" onclick="updateOne('${customer.id}')">Edit</button></td>
+           <td><button class="btn btn-sm btn-danger" onclick="delOne('${customer.id}')">delete</button></td>
+           </tr>
+
+            `
+        })
+        displayTable.innerHTML += `</tbody>`
+        displayData.appendChild(displayTable)
+    }
 }

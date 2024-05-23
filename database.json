@@ -1,11 +1,25 @@
 {
   "customers": [
     {
-      "id": "24ef",
+      "firstName": "faisal",
+      "lastName": "almashani",
+      "email": "faisal.almashani@gmail.com",
+      "phone": "99090203",
+      "id": "450b"
+    },
+    {
+      "id": "f98e",
       "firstName": "Ahmed",
       "lastName": "Almashani",
       "email": "Ahmed.Almashani@gmail.com",
       "phone": "91190022"
+    },
+    {
+      "id": "89c3",
+      "firstName": "mohammed",
+      "lastName": "almashani",
+      "email": "mohammed.almashani@gmail.com",
+      "phone": "99882211"
     }
   ]
 }

@@ -105,6 +105,7 @@ nav ul li a:hover {
 }
 
 
+
 .container hr {
     background: linear-gradient(brown, black);
     background-size: cover;
@@ -152,4 +153,46 @@ nav ul li a:hover {
 
 .display-table {
     border-radius: 20px;
+}
+
+.search-div {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 10px 10px;
+    color: brown;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 25px;
+    padding: 10px;
+    background: linear-gradient(orange, black);
+    cursor: pointer;
+}
+
+.search-div>* {
+    margin-top: 10px;
+}
+
+.search-div label {
+    color: white;
+    font-weight: bold;
+}
+
+.search-div #searchText {
+    background-color: black;
+    color: white;
+}
+
+.search-div #searchOption {
+
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.show-search-div {
+    display: none;
+    width: 100%;
+    text-align: center;
 }
